@@ -1,0 +1,5 @@
+João Silva;12345;8.5
+Maria Oliveira;67890;9.0
+Carlos Pereira;54321;7.5
+Ana Souza;98765;8.0
+Pedro Santos;11223;6.5
