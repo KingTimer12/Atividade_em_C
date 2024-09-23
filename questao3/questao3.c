@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include <time.h>
+#include "../headers/utils.h"
+
+void cpuUsed(double *cpu_used, const clock_t *end, const clock_t *start);
 
 int func1(int n)
 {
@@ -35,19 +37,19 @@ int main()
     start = clock();
     func1(i);
     end = clock();
-    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    cpuUsed(&cpu_time_used, &end, &start);
     printf("Funcao func1(%d) executado em %fs\n", i, cpu_time_used);
 
     start = clock();
     func2(i);
     end = clock();
-    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    cpuUsed(&cpu_time_used, &end, &start);
     printf("Funcao func2(%d) executado em %fs\n", i, cpu_time_used);
 
     start = clock();
     func3(i);
     end = clock();
-    cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+    cpuUsed(&cpu_time_used, &end, &start);
     printf("Funcao func3(%d) executado em %fs\n", i, cpu_time_used);
 
     return 0;

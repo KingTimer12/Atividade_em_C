@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
+#define CHAR_LEN 100
+
 int main() {
-    char str1[100], str2[100], str3[100];
-    char temp[100];
+    char str1[CHAR_LEN], str2[CHAR_LEN], str3[CHAR_LEN];
+    char temp[CHAR_LEN];
 
     printf("Primeira palavra: ");
-    gets(str1);
+    scanf("%s", str1);
     printf("Segunda palavra: ");
-    gets(str2);
+    scanf("%s", str2);
     printf("terceira palavra: ");
-    gets(str3);
+    scanf("%s", str3);
 
     if (strcmp(str1, str2) > 0) {
         strcpy(temp, str1);

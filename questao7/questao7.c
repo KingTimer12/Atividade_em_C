@@ -1,10 +1,19 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../headers/utils.h"
+
+#define FILE_1 "arquivo1.txt"
+#define FILE_2 "arquivo2.txt"
+#define FILE_OUTPUT "resultado.txt"
+
+void concatPath(char *dist, char *src);
 
 int main() {
-    const char *file1 = "arquivo1.txt";
-    const char *file2 = "arquivo2.txt";
-    const char *output_file = "resultado.txt";
+    char *file1;
+    char *file2;
+    char *output_file;
+    
+    concatPath(file1, FILE_1);
+    concatPath(file2, FILE_2);
+    concatPath(output_file, FILE_OUTPUT);
 
     FILE *f1 = fopen(file1, "r");
     FILE *f2 = fopen(file2, "r");

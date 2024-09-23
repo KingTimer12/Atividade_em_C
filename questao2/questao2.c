@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include <time.h>
+#include "../headers/utils.h"
+
+void timeFormat(time_t *now, char *buffer); // para tirar o warning chato
 
 int main() {
     time_t now;
-    time(&now);
-    struct tm *local = localtime(&now);
     char buffer[10];
-
-    strftime(buffer, sizeof(buffer), "%I:%M %p", local);
+    
+    timeFormat(&now, buffer);
+    struct tm *local = localtime(&now);
 
     int hours_in_seconds = local->tm_hour * 3600;
     int minutes_in_seconds = local->tm_min * 60;

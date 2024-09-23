@@ -1,18 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../headers/utils.h"
 #include <string.h>
-#include <ctype.h>
 
 #define MAX_WORD_LENGTH 100
 
-void toLowerCase(char *str) {
-    for (int i = 0; str[i]; i++) {
-        str[i] = tolower(str[i]);
-    }
-}
+void toLowerCase(char *str);
 
 int main() {
-    char filename[MAX_WORD_LENGTH], word[MAX_WORD_LENGTH], temp[MAX_WORD_LENGTH];
+    char path[MAX_WORD_LENGTH], filename[MAX_WORD_LENGTH], word[MAX_WORD_LENGTH], temp[MAX_WORD_LENGTH];
     FILE *file;
     int count = 0;
 
@@ -20,10 +14,12 @@ int main() {
     scanf("%s", filename);
     printf("Digite a palavra a ser buscada: ");
     scanf("%s", word);
-
     toLowerCase(word);
+    
+    strcat(path, FOLDER_ARCHIVES);
+    strcat(path, filename);
 
-    file = fopen(filename, "r");
+    file = fopen(path, "r");
     if (file == NULL) {
         printf("Erro ao abrir o arquivo.\n");
         return 1;
@@ -31,9 +27,7 @@ int main() {
 
     while (fscanf(file, "%s", temp) != EOF) {
         toLowerCase(temp);
-        if (strcmp(temp, word) == 0) {
-            count++;
-        }
+        if (strcmp(temp, word) == 0) count++;
     }
 
     fclose(file);
