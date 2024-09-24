@@ -9,7 +9,11 @@ typedef struct {
 } Aluno;
 
 int main() {
-    FILE *file = fopen("alunos.txt", "r");
+    char path[100];
+
+    concatPath(path, "alunos.txt");
+
+    FILE *file = fopen(path, "r");
     if (file == NULL) {
         perror("Erro ao abrir o arquivo");
         return 1;

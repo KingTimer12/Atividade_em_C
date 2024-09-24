@@ -4,16 +4,14 @@
 #define FILE_2 "arquivo2.txt"
 #define FILE_OUTPUT "resultado.txt"
 
-void concatPath(char *dist, char *src);
+#define MAX_WORD_LENGTH 100
 
 int main() {
-    char *file1;
-    char *file2;
-    char *output_file;
+    char file1[MAX_WORD_LENGTH], file2[MAX_WORD_LENGTH], output_file[MAX_WORD_LENGTH];
     
-    concatPath(file1, FILE_1);
-    concatPath(file2, FILE_2);
-    concatPath(output_file, FILE_OUTPUT);
+    concatPath(file1, "arquivo1.txt");
+    concatPath(file2, "arquivo2.txt");
+    concatPath(output_file, "resultado.txt");
 
     FILE *f1 = fopen(file1, "r");
     FILE *f2 = fopen(file2, "r");

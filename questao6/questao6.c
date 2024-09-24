@@ -3,8 +3,6 @@
 
 #define MAX_WORD_LENGTH 100
 
-void toLowerCase(char *str);
-
 int main() {
     char path[MAX_WORD_LENGTH], filename[MAX_WORD_LENGTH], word[MAX_WORD_LENGTH], temp[MAX_WORD_LENGTH];
     FILE *file;
@@ -16,8 +14,10 @@ int main() {
     scanf("%s", word);
     toLowerCase(word);
     
-    strcat(path, FOLDER_ARCHIVES);
-    strcat(path, filename);
+    concatPath(path, filename);
+
+    // strcat(path, FOLDER_ARCHIVES);
+    // strcat(path, filename);
 
     file = fopen(path, "r");
     if (file == NULL) {

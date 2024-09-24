@@ -4,7 +4,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define FOLDER_ARCHIVES "../arquivos"
+#ifdef _WIN32
+#define FOLDER_ARCHIVES ".\\arquivos\\"
+#else
+#define FOLDER_ARCHIVES "arquivos/"
+#endif
 
 #ifndef TIMEFORMAT_H
 #define TIMEFORMAT_H

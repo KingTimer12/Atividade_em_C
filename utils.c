@@ -1,14 +1,19 @@
 #include "headers/utils.h"
 
 void concatPath(char *dist, char *src) {
+    dist[0] = '\0';
+    printf("src: %s\n", src);
+    printf("folder: %s\n", FOLDER_ARCHIVES);
     strcat(dist, FOLDER_ARCHIVES);
     strcat(dist, src);
+    printf("dist: %s\n", dist);
 }
 
 void timeFormat(time_t *now, char *buffer) {
     time(now);
     struct tm *local = localtime(now);
-    strftime(buffer, sizeof(buffer), "%I:%M %p", local);
+    printf("sizeof %d\n", sizeof(buffer)*3);
+    strftime(buffer, sizeof(buffer)*3, "%I:%M %p", local);
 }
 
 void cpuUsed(double *cpu_used, const clock_t *end, const clock_t *start) {

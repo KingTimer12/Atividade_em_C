@@ -5,7 +5,7 @@ void timeFormat(time_t *now, char *buffer); // para tirar o warning chato
 
 int main() {
     time_t rawtime;
-    char buffer[10];
+    char buffer[20];
     
     timeFormat(&rawtime, buffer);
     
